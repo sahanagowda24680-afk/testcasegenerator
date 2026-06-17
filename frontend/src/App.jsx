@@ -15,7 +15,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/generate-test-cases', {
+      const response = await axios.post('https://testcasegenerator-production-e7ab.up.railway.app/api/generate-test-cases',{
         url,
         testType
       });
