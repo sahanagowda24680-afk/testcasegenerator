@@ -1,1 +1,110 @@
+(Or the Railway production URL when deployed)
 
+## File Descriptions
+
+### Backend Files
+
+**server.js** - Main Express server file
+- Sets up middleware (CORS, body parser)
+- Defines health check endpoint
+- Defines /api/generate-test-cases endpoint
+- Error handling and 404 routes
+
+**claudeService.js** - Claude AI integration
+- Calls Anthropic API to generate test cases
+- Handles response formatting
+- Returns structured test case objects
+
+**testcaseroutes.js** - Test case routes (if used)
+- API route definitions
+- Request validation
+
+### Frontend Files
+
+**App.jsx** - Main React component
+- Form for URL and test type input
+- Handles API calls to backend
+- Displays test cases in table format
+- CSV and JSON download functionality
+
+**App.css** - Styling for the application
+- Beautiful gradient background
+- Responsive form layout
+- Table styling
+- Download button styling
+
+**main.jsx** - React entry point
+- Mounts App component to DOM
+
+**tailwind.config.js** - Tailwind CSS configuration
+- Custom theme colors
+- Responsive breakpoints
+
+## Troubleshooting
+
+### "Cannot find module 'claudeService'"
+**Solution:** Make sure `backend/src/services/claudeService.js` exists
+
+### "CORS error - Response to preflight request"
+**Solution:** Check CORS_ORIGIN environment variable matches your frontend URL
+
+### "Port 5000 already in use"
+**Solution:** Change PORT in .env or kill the process using port 5000
+
+### "Network Error in frontend"
+**Solution:** Make sure backend is running and API URL is correct in App.jsx
+
+### "API key not recognized"
+**Solution:** Verify your CLAUDE_API_KEY is valid from https://console.anthropic.com/
+
+## Git Workflow
+
+```bash
+# Make changes
+git add .
+git commit -m "Description of changes"
+git push origin main
+
+# Railway and Vercel auto-deploy!
+```
+
+## Important Files to Keep Secure
+
+- `.env` - Contains API keys (never commit!)
+- `.gitignore` - Prevents sensitive files from being pushed
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/YourFeature`
+3. Commit your changes: `git commit -m 'Add YourFeature'`
+4. Push to the branch: `git push origin feature/YourFeature`
+5. Open a Pull Request
+
+## Future Enhancements
+
+- Real Claude API integration (currently returns mock data)
+- Database to store generated test cases
+- User authentication
+- Test case templates
+- Integration with test management tools
+- Advanced filtering and search
+- Test execution tracking
+
+## License
+
+ISC
+
+## Author
+
+Sahana Gowda
+
+## Support
+
+For issues, questions, or suggestions, please open an issue on GitHub.
+
+---
+
+**🎉 Built with ❤️ using React, Node.js, and Claude AI**
+
+**Last Updated:** June 18, 2026
